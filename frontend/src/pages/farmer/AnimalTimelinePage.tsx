@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import api from '../../api/client';
+import { useLanguage } from '../../contexts/LanguageContext';
 import { ArrowLeft, CheckCircle2, Clock, Activity, ShieldCheck, Stethoscope, FlaskConical } from 'lucide-react';
 
 export const AnimalTimelinePage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
+  const { language, t } = useLanguage();
   const [data, setData] = useState<any | null>(null);
   const [loading, setLoading] = useState(true);
+
+  const isTa = language === 'ta';
 
   useEffect(() => {
     api.get(`/animals/${id}/timeline`)
@@ -23,7 +27,7 @@ export const AnimalTimelinePage: React.FC = () => {
   if (loading) {
     return (
       <div className="p-8 text-center text-xs text-slate-500">
-        Loading animal health timeline...
+        {isTa ? 'கால்நடை சுகாதார காலவரிசை ஏற்றப்படுகிறது...' : 'Loading animal health timeline...'}
       </div>
     );
   }
@@ -31,12 +35,16 @@ export const AnimalTimelinePage: React.FC = () => {
   if (!data || !data.animal) {
     return (
       <div className="p-8 text-center text-xs text-slate-500">
-        Animal record not found. <Link to="/farmer/animals" className="text-emerald-600 font-bold">Return to Registry</Link>
+        {isTa ? 'கால்நடை பதிவு கிடைக்கவில்லை.' : 'Animal record not found.'}{' '}
+        <Link to="/farmer/animals" className="text-emerald-600 font-bold">
+          {isTa ? 'பதிவேட்டிற்குத் திரும்பு' : 'Return to Registry'}
+        </Link>
       </div>
     );
   }
 
   const { animal, timeline } = data;
+  const speciesName = t(`species.${animal.species}`) || animal.species;
 
   const getTimelineIcon = (type: string) => {
     switch (type) {
@@ -62,7 +70,7 @@ export const AnimalTimelinePage: React.FC = () => {
         className="inline-flex items-center gap-2 text-xs font-semibold text-slate-600 hover:text-emerald-700 transition"
       >
         <ArrowLeft className="w-4 h-4" />
-        <span>Back to Livestock Registry</span>
+        <span>{isTa ? 'கால்நடை பதிவேட்டிற்குத் திரும்பு' : 'Back to Livestock Registry'}</span>
       </Link>
 
       {/* Animal Header Card */}
@@ -72,13 +80,15 @@ export const AnimalTimelinePage: React.FC = () => {
             <span className="font-mono font-bold text-xs bg-slate-100 text-slate-800 px-2 py-0.5 rounded">
               Tag #{animal.tagNumber}
             </span>
-            <span className="text-xs text-slate-500">Village: Kallanur</span>
+            <span className="text-xs text-slate-500">
+              {isTa ? 'கிராமம்: கல்லாநூர்' : 'Village: Kallanur'}
+            </span>
           </div>
           <h1 className="text-xl font-bold text-slate-900">
-            {animal.breed || animal.species}
+            {animal.breed || speciesName}
           </h1>
           <p className="text-xs text-slate-500">
-            {animal.species} &bull; {animal.gender} &bull; {animal.ageMonths} months
+            {speciesName} &bull; {animal.gender === 'FEMALE' ? t('animalsRegistry.female') : t('animalsRegistry.male')} &bull; {animal.ageMonths} {isTa ? 'மாதங்கள்' : 'months'}
           </p>
         </div>
 
@@ -86,14 +96,14 @@ export const AnimalTimelinePage: React.FC = () => {
           to="/farmer/report"
           className="px-4 py-2 bg-emerald-600 text-white rounded-xl text-xs font-semibold hover:bg-emerald-700 text-center"
         >
-          Report Health Issue
+          {t('menu.reportHealth')}
         </Link>
       </div>
 
       {/* Unified Timeline Feed */}
       <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs">
         <h3 className="text-sm font-bold text-slate-900 mb-6 pb-3 border-b border-slate-100">
-          Unified Health & Clinical Timeline
+          {isTa ? 'ஒருங்கிணைந்த மருத்துவ காலவரிசை' : 'Unified Health & Clinical Timeline'}
         </h3>
 
         <div className="relative pl-6 space-y-8 before:absolute before:left-2.5 before:top-2 before:bottom-2 before:w-0.5 before:bg-slate-200">

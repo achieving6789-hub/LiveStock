@@ -6,6 +6,48 @@
   "disclaimerText": "AI risk scores assist veterinary triage and early warning. Diagnosis requires clinical and laboratory confirmation.",
   "role": "Role",
   "signOut": "Sign Out",
+  "onlineStatus": "Online & Early-Warning AI Active",
+  "offlineStatus": "Offline Mode - Saved Locally",
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "submit": "Submit",
+    "submitting": "Submitting...",
+    "back": "Back",
+    "dismiss": "Dismiss",
+    "loading": "Loading...",
+    "search": "Search",
+    "filter": "Filter",
+    "all": "All",
+    "status": "Status",
+    "actions": "Actions",
+    "viewAll": "View All",
+    "view": "View",
+    "details": "Details",
+    "close": "Close",
+    "yes": "Yes",
+    "no": "No",
+    "date": "Date",
+    "location": "Location",
+    "village": "Village",
+    "district": "District",
+    "days": "Days",
+    "reduction": "Reduction",
+    "none": "None"
+  },
+  "species": {
+    "Cattle": "Cattle (Bovine)",
+    "Buffalo": "Buffalo (Bubaline)",
+    "Goat": "Goat (Caprine)",
+    "Sheep": "Sheep (Ovine)",
+    "Poultry": "Poultry (Avian)"
+  },
+  "severity": {
+    "MILD": "Mild (Early Signs)",
+    "MODERATE": "Moderate (Visible Impact)",
+    "SEVERE": "Severe (High Urgent Risk)",
+    "CRITICAL": "Critical (Life Threatening)"
+  },
   "menu": {
     "surveillanceMenu": "Surveillance Menu",
     "farmerDashboard": "Farmer Dashboard",
@@ -43,35 +85,174 @@
     "recentObs": "Recent Animal Observations",
     "aiAdvisory": "AI-Assisted Risk Advisory",
     "reportBtn": "Report Health Issue",
-    "mortalityBtn": "Report Mortality"
+    "mortalityBtn": "Report Mortality",
+    "viewLivestock": "View All Livestock",
+    "fmdDue": "FMD Due in 14 Days",
+    "clusterRisk": "Foot Lesion signals in cluster",
+    "assignedTo": "Assigned to",
+    "biosecurityTitle": "Urgent Biosecurity Protocol - Containment Advisory",
+    "biosecurityDesc": "Active Foot-and-Mouth Disease (FMD) transmission cluster detected within 3.5 km of your village. Strict quarantine protocols are now active.",
+    "helplineBtn": "Call Veterinary Helpline (1800-425-0012)",
+    "underInvestigation": "Under Vet Investigation"
+  },
+  "farmerInputs": {
+    "inputMethodsTitle": "Farmer-Friendly Input Options",
+    "voiceInput": "Voice Input (Speech-to-Text)",
+    "listening": "Listening... Please speak in Tamil or English",
+    "stopListening": "Stop Voice Input",
+    "voiceHelp": "Tap the mic and speak symptoms. It will automatically convert to text!",
+    "voiceNotSupported": "Voice speech recognition is not supported in this browser.",
+    "listenSymptom": "Listen to this symptom",
+    "quickPresets": "Quick Disease Presets (1-Tap Selection):",
+    "presetFmd": "Foot & Mouth Disease (FMD)",
+    "presetLsd": "Lumpy Skin Disease (LSD)",
+    "presetHs": "Hemorrhagic Septicemia (HS)",
+    "presetAnthrax": "Anthrax / Sudden Death",
+    "presetApplied": "Applied preset for",
+    "clearAll": "Clear Selection",
+    "easyMode": "Farmer Easy Mode (Touch & Visual)",
+    "standardMode": "Detailed Clinical Form",
+    "quickBreeds": "Quick Breeds:"
+  },
+  "symptoms": {
+    "FEVER": {
+      "name": "High Fever (> 104°F)",
+      "desc": "Body shivering, high surface temperature, dullness",
+      "category": "Systemic"
+    },
+    "VESICLES_MOUTH": {
+      "name": "Blisters / Lesions in Mouth & Tongue",
+      "desc": "Erosions on tongue, gums, reluctance to eat",
+      "category": "Mucosal"
+    },
+    "VESICLES_FEET": {
+      "name": "Foot Lesions & Severe Lameness",
+      "desc": "Hoof inflammation, wounds between claws, limping",
+      "category": "Mucosal"
+    },
+    "SALIVATION": {
+      "name": "Excessive Frothy Salivation",
+      "desc": "Ropy saliva hanging from mouth, drooling",
+      "category": "Digestive"
+    },
+    "SKIN_NODULES": {
+      "name": "Circumscribed Skin Nodules (LSD Signs)",
+      "desc": "Firm round lumps on skin and body",
+      "category": "Systemic"
+    },
+    "RESPIRATORY_DISTRESS": {
+      "name": "Labored / Grunting Respiration",
+      "desc": "Heavy breathing, panting, grunting sound",
+      "category": "Respiratory"
+    },
+    "SUDDEN_DEATH": {
+      "name": "Sudden Unexplained Death",
+      "desc": "Animal found dead without previous symptoms",
+      "category": "Acute"
+    },
+    "MILK_DROP": {
+      "name": "Severe Drop in Milk Yield (>40%)",
+      "desc": "Drastic sudden decrease in daily milk production",
+      "category": "Production"
+    },
+    "DIARRHEA": {
+      "name": "Severe / Watery Diarrhea",
+      "desc": "Watery or foul-smelling loose stool",
+      "category": "Digestive"
+    },
+    "THROAT_SWELLING": {
+      "name": "Throat & Neck Swelling",
+      "desc": "Hot painful swelling in lower neck/brisket",
+      "category": "Respiratory"
+    }
   },
   "reportForm": {
     "title": "Report Livestock Health Issue",
     "subTitle": "Provide clinical observations for automated risk scoring and prioritized veterinary investigation.",
-    "section1": "1. Livestock Subject",
+    "section1": "1. Livestock Subject Details",
     "section2": "2. Observed Symptoms & Clinical Signs",
     "section3": "3. Vitals & Quantitative Indicators",
     "section4": "4. Geographic Coordinates & Clinical Notes",
     "tagLabel": "Registered Animal Tag",
+    "generalHerd": "-- General Herd / Unregistered --",
     "speciesLabel": "Species",
-    "breedLabel": "Breed",
+    "breedLabel": "Breed / Variety",
+    "breedPlaceholder": "e.g. Kangayam, Murrah, Umblachery",
+    "selectAll": "Select all that apply",
     "severityLabel": "Overall Severity Level",
     "tempLabel": "Body Temperature (°C)",
+    "tempPlaceholder": "e.g. 39.5",
     "durationLabel": "Duration (Days)",
     "milkDropLabel": "Lactation Yield Drop (%):",
+    "milkReduction": "Reduction",
     "appetiteLoss": "Loss of Appetite / Anorexia",
     "activityReduced": "Depressed Activity / Lethargy",
     "mortalityOccurred": "Death Occurred in Holding?",
     "gpsLabel": "GPS Coordinates (Latitude, Longitude)",
+    "gpsDetect": "Detect GPS",
+    "gpsDetecting": "Detecting...",
+    "gpsSuccess": "GPS Located",
     "clinicalNotes": "Clinical Examination Notes",
+    "clinicalPlaceholder": "e.g. Oral mucosa erosions, hypersalivation, refusal to graze",
     "farmerObs": "Detailed Farmer Observations",
+    "farmerObsPlaceholder": "Describe when signs started, herd contacts, water source, recent arrivals...",
     "saveOffline": "Save Offline",
     "saveDraft": "Save Draft",
     "submitBtn": "Submit to Early-Warning Engine",
     "successTitle": "Health Report Submitted & Assessed Successfully!",
     "aiAssessment": "AI Early-Warning Assessment:",
+    "referenceId": "Reference Report ID:",
+    "assignedVetInfo": "Observation routed to veterinary triage queue for Dr. Sundaramurthy (Attur Veterinary Unit).",
     "goToVet": "Go to Veterinary Triage Dashboard",
     "returnHome": "Return to Farmer Dashboard",
-    "submitAnother": "Submit Another Report"
+    "submitAnother": "Submit Another Report",
+    "offlineNotice": "Report Saved Offline in local browser storage. It will synchronize automatically when internet connectivity returns.",
+    "draftNotice": "Draft Saved to Session Memory: Your recorded clinical signs and observations are cached and can be edited anytime."
+  },
+  "mortalityForm": {
+    "title": "Report Livestock Mortality",
+    "subTitle": "Promptly report livestock deaths for epidemic cluster detection and autopsy coordination.",
+    "back": "Back to Farmer Dashboard",
+    "species": "Species Affected",
+    "numberDeaths": "Number of Deaths",
+    "suspectedCause": "Suspected Cause / Pre-death Signs",
+    "suspectedPlaceholder": "Describe circumstances (e.g. Sudden death after high fever, bloody discharge)",
+    "dateOfDeath": "Date of Mortality Event",
+    "gps": "GPS Coordinates (Latitude, Longitude)",
+    "submit": "Submit Mortality Event",
+    "submitting": "Logging Event...",
+    "successTitle": "Mortality Report Logged Successfully",
+    "successDesc": "This mortality event has been flagged for rapid veterinary autopsy and carcass disposal protocol under state biosecurity regulations.",
+    "returnBtn": "Return to Dashboard"
+  },
+  "animalsRegistry": {
+    "title": "Livestock & Herd Registry",
+    "subTitle": "Maintain your holdings, track vaccination due dates, and monitor clinical histories.",
+    "registerBtn": "Register New Livestock",
+    "searchPlaceholder": "Search by tag # or breed...",
+    "allSpecies": "All Species",
+    "tagNumber": "Tag Number",
+    "species": "Species",
+    "breed": "Breed",
+    "age": "Age (Months)",
+    "gender": "Gender",
+    "healthStatus": "Health Status",
+    "actions": "Actions",
+    "viewTimeline": "View Health Timeline",
+    "healthy": "HEALTHY",
+    "underObs": "UNDER OBSERVATION",
+    "male": "Male",
+    "female": "Female",
+    "registerModalTitle": "Register New Livestock Holding",
+    "tagPlaceholder": "e.g. IN-TN-9830",
+    "breedPlaceholder": "e.g. Kangayam",
+    "saveBtn": "Register Livestock"
+  },
+  "advisoriesPage": {
+    "title": "Regional Advisories & Risk Alerts",
+    "subTitle": "Real-time disease intelligence and biosecurity protocols issued by veterinary authorities.",
+    "back": "Back to Farmer Dashboard",
+    "preventiveTitle": "Recommended Preventive Measures:",
+    "helplineNotice": "Report any sudden mortality immediately through the platform or toll-free helpline 1800-425-0012."
   }
 }
